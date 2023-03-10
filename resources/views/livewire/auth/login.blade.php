@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="card-footer text-center py-3">
                                     <div class="small"><a href="{{route('sign.up')}}">Sign Up</a></div>
-                                    <div class="small"><a href="{{route('teacher.sign.in')}}">Subject Teacher Login</a></div>
+                                    <div class="small"><a href="{{route('teacher.sign.in')}}">Subject/Teacher Login</a></div>
                                 </div>
                             </div>
                         </div>

@@ -10,16 +10,16 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" wire:model.lazy="email" type="email" placeholder="name@example.com" />
                                             <label for="inputEmail">Email address</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                            <input class="form-control" id="inputPassword"  wire:model.lazy="password" type="password" placeholder="Password" />
                                             <label for="inputPassword">Password</label>
                                         </div>
 
-                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="btn btn-primary" href="index.html">Login</a>
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid"><a class="btn btn-primary btn-block" wire:click.prevent="signin">Login</a></div>
                                         </div>
                                     </form>
                                 </div>

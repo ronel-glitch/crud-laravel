@@ -10,33 +10,38 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputFullname" type="text" placeholder="Fullname" />
+                                            <input class="form-control" id="inputFullname"  wire:model.lazy="user.name" type="text" placeholder="Fullname" />
                                             <label for="inputFullname">Fullname</label>
+                                            @error('user.name') <small class="text-danger">{{ $message }}</small> @enderror
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputSubject" type="text" placeholder="Fullname" />
+                                            <input class="form-control" id="inputSubject" wire:model.lazy="user.subject" type="text" placeholder="Fullname" />
                                             <label for="inputSubject">Subject</label>
+                                            @error('user.subject') <small class="text-danger">{{ $message }}</small> @enderror
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" wire:model.lazy="user.email" type="email" placeholder="name@example.com" />
                                             <label for="inputEmail">Email address</label>
+                                            @error('user.email') <small class="text-danger">{{ $message }}</small> @enderror
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                    <input class="form-control" id="inputPassword" wire:model.lazy="password" type="password" placeholder="Create a password" />
                                                     <label for="inputPassword">Password</label>
+                                                    @error('password') <small class="text-danger">{{ $message }}</small> @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                    <input class="form-control" id="inputPasswordConfirm" wire:model.lazy="confirm_password" type="password" placeholder="Confirm password" />
                                                     <label for="inputPasswordConfirm">Confirm Password</label>
+                                                    @error('confirm_password') <small class="text-danger">{{ $message }}</small> @enderror
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                            <div class="d-grid"><a class="btn btn-primary btn-block" onclick="save()">Create Account</a></div>
                                         </div>
                                     </form>
                                 </div>
@@ -49,5 +54,21 @@
                 </div>
             </main>
         </div>
-        </div>
+    </div>
+    <script>
+        function save() {
+            swal({
+                title: 'Create Account?',
+                text: '',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: false,
+                buttons: ['Cancel', 'Create'],
+            }).then((agree) => {
+                    if (agree) {
+                        @this.save();
+                    }
+                });
+        }
+    </script>
 </div>
